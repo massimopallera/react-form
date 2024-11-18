@@ -52,9 +52,16 @@ function App() {
 
   function handleSubmit(e) { 
     e.preventDefault()
+    
     setArticle([
-      ...posts,
-      newArticle])
+      ...article,
+      {
+        id: article.length + 1,
+        title: "Introduzione a React",
+        content: "New",
+        author: "Alessandro Blu",
+        date: "2024-11-18"
+      }])
     setNewArticle("")
   }
 
