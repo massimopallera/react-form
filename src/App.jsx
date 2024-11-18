@@ -47,22 +47,27 @@ const posts = [
 
 function App() {
   const [article, setArticle] = useState(posts)
-  const [newArticle, setNewArticle] = useState("")
-
+  const [newTitle, setNewTitle] = useState("")
+  const [newContent, setNewContent] = useState("")
+  const [newAuthor, setNewAuthor] = useState("")
 
   function handleSubmit(e) { 
     e.preventDefault()
-    
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth()
+    const day = new Date().getDate()
+
     setArticle([
       ...article,
       {
         id: article.length + 1,
-        title: "Introduzione a React",
-        content: "New",
-        author: "Alessandro Blu",
-        date: "2024-11-18"
+        title: newTitle,
+        content: newContent,
+        author: newAuthor,
+        date: `${year}-${month}-${day}`
       }])
-    setNewArticle("")
+    
+    console.log(article);
   }
 
   return (
@@ -73,11 +78,36 @@ function App() {
     
       <main>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id='newArticle'
-            value={newArticle}
-            onChange={e => setNewArticle(e.target.value)} />
+
+          <div>
+            <h2>Title</h2>
+            <input
+              type="text"
+              id='newArticle-id'
+              value={newTitle}
+              onChange={e =>setNewTitle(e.target.value)}
+            />
+          </div>
+          
+          <div>
+            <h2>Content</h2>
+            <input
+              type="text"
+              id='newArticle-content'
+              value={newContent}
+              onChange={e => setNewContent(e.target.value)}
+            />
+          </div>
+          
+          <div>
+            <h2>Author</h2>
+            <input
+              type="text"
+              id='newArticle-content'
+              value={newAuthor}
+              onChange={e => setNewAuthor(e.target.value)}
+            />
+          </div>
           
 
           <button type="submit">Aggiungi nuovo articolo</button>
