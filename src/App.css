@@ -25,22 +25,28 @@ main{
 }
 
 form{
-
+  h2{
+    padding-left: .8rem;
+  }
   input[type="text"]{
+    background: #EEE;
+    font-size: 15px;
     width: 100%;
-    padding: .5rem;
+    padding: .5rem .9rem;
     margin: .5rem 0 2rem;
     border-radius: 9999px;
     border: 1px solid transparent;
-
+    
   }
-
+  
   .submit-button{
     text-align: center;
     button{
+      background: #EEE;
       padding: .5rem 1rem;
       border-radius: 9999px;
       border: 1px solid transparent;
+      font-size: 1rem;
     }
   }
 }
