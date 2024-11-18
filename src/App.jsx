@@ -77,9 +77,10 @@ function App() {
       </header>
     
       <main>
+        <div className="container">
+
         <form onSubmit={handleSubmit}>
 
-          <div>
             <h2>Title</h2>
             <input
               type="text"
@@ -87,9 +88,7 @@ function App() {
               value={newTitle}
               onChange={e =>setNewTitle(e.target.value)}
             />
-          </div>
-          
-          <div>
+
             <h2>Content</h2>
             <input
               type="text"
@@ -97,9 +96,7 @@ function App() {
               value={newContent}
               onChange={e => setNewContent(e.target.value)}
             />
-          </div>
-          
-          <div>
+
             <h2>Author</h2>
             <input
               type="text"
@@ -107,21 +104,25 @@ function App() {
               value={newAuthor}
               onChange={e => setNewAuthor(e.target.value)}
             />
-          </div>
-          
 
-          <button type="submit">Aggiungi nuovo articolo</button>
+
+          <div className='submit-button'>
+            <button type="submit">Aggiungi nuovo articolo</button>
+              
+          </div>
         </form>
 
 
         <div className="list">
-          <ul>
+          <ol>
             {article.map((post, index) => 
               <li key={index}>
                 {post.content}
             </li>)}
-          </ul>
+          </ol>
         </div>
+      </div>
+
       </main>
     </>
   )
